@@ -1,0 +1,65 @@
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark  " style="background-color: white;">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-bars" style="color:white;"></i>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ">
+                    <li class="nav-item ms-5">
+                        <a class="nav-link active" aria-current="page" href="#">HOME</a>
+                    </li>
+                    <li class="nav-item ms-3" >
+                        <a class="nav-link" routerLink="/transaction" >TRANSACTIONS</a>
+                    </li>
+                    <li class="nav-item" style="margin-left: 750px;">
+                        <a class="nav-link" (click)="DeleteAcc()" >DELETE-ACCOUNT</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="" style="margin-left: 18px;">LOGOUT &nbsp;<i class="fas fa-power-off"></i></a>
+                    </li> 
+                </ul>
+            </div>
+    </nav>
+
+<app-delete-confirmation (onCancel)="onCancel()" (onDelete)="onDelete($event)" [item]="acno"></app-delete-confirmation>
+<div class="container">
+    <br>
+    <h1 class="welcome">Welcome {{userName}}</h1>
+    <div class="both" >
+        <div class="depositwithdraw me-5">
+            <h5>WITHDRAWAL</h5>
+            <hr>
+            <form (ngSubmit)="withDraw()" [formGroup]="withdrawForm">
+                <input class="form-control mt-3" type="text" formControlName="acno" name="name" placeholder="Account Number">
+                <div class="error" *ngIf="(this.withdrawForm.get('acno')?.touched || this.withdrawForm.get('acno')?.dirty)&& this.withdrawForm.get('acno')?.errors">Invalid Account Number</div>
+                <input class="form-control mt-3" type="password" formControlName="pswd" name="ac"  placeholder="Password">
+                <div class="error" *ngIf="(this.withdrawForm.get('pswd')?.touched || this.withdrawForm.get('pswd')?.dirty)&& this.withdrawForm.get('pswd')?.errors">Invalid Password</div>
+                <input class="form-control mt-3" type="text" formControlName="amt" name="pswd"  placeholder="Amount">
+                <div class="error" *ngIf="(this.withdrawForm.get('amt')?.touched || this.withdrawForm.get('amt')?.dirty)&& this.withdrawForm.get('amt')?.errors">Enter a digit </div>
+                <button type="submit" class="btn btn-secondary mt-3 but me-5">WITHDRAW</button><br><br>
+            </form> <br>
+        </div>
+        
+        <div class="depositwithdraw ">
+            <h5>DEPOSIT</h5>
+            <hr>
+            <form (ngSubmit)="Deposit()" [formGroup]="depositForm">
+                <input class="form-control mt-3" type="text" name="name" formControlName="acno" placeholder="Account Number">
+                <div class="error" *ngIf="(this.depositForm.get('acno')?.touched || this.depositForm.get('acno')?.dirty)&& this.depositForm.get('acno')?.errors">Invalid Account Number</div>
+                <input class="form-control mt-3" type="password"  name="ac" formControlName="pswd" placeholder="Password">
+                <div class="error" *ngIf="(this.depositForm.get('pswd')?.touched || this.depositForm.get('pswd')?.dirty)&& this.depositForm.get('pswd')?.errors">Invalid Password</div>
+                <input class="form-control mt-3" type="text"  name="pswd" formControlName="amt" placeholder="Amount">
+                <div class="error" *ngIf="(this.depositForm.get('amt')?.touched || this.depositForm.get('amt')?.dirty)&& this.depositForm.get('amt')?.errors">Enter a digit</div>
+                <button type="submit" class="btn btn-secondary mt-3 but ms-3">DEPOSIT</button><br><br>
+            </form> <br>
+        </div>
+    </div >
+    <br>
+    
+    <br>
+    
+    <br>
+
+</div>  

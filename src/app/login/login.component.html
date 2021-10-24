@@ -1,0 +1,18 @@
+
+<div class="backgd">
+    <h1 class="head">KERELA GRAMIN BANK</h1>
+        <div class="center">
+            <form (ngSubmit)="login()" [formGroup]="loginForm">
+                <h4>LOGIN</h4>
+                <hr>
+                <input class="form-control mt-3" type="text" formControlName="acno" name="ac"  placeholder="Account Number">
+                <div class="error" *ngIf="(this.loginForm.get('acno')?.touched || this.loginForm.get('acno')?.dirty)&& this.loginForm.get('acno')?.errors">Invalid Account Number</div>
+                <input class="form-control mt-3" type="password" name="pswd" formControlName="pswd"   placeholder="Password">
+                <div class="error" *ngIf="(this.loginForm.get('pswd')?.touched || this.loginForm.get('pswd')?.dirty)&& this.loginForm.get('pswd')?.errors">Invalid password</div>
+                <button type="submit" class="btn btn-secondary mt-3 but" name="button" >LOGIN</button>
+            </form>
+            <br><br>
+            <br>
+            <div style="font-size: 13px; font-weight: 500;" >DON'T HAVE AN ACCOUNT? <a routerLink="register" >SignUp</a></div>
+        </div>
+</div>

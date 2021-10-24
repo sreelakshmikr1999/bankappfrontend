@@ -1,0 +1,57 @@
+.both{
+    display:flex;
+    flex-direction: row;
+    
+}
+.depositwithdraw {
+    margin-top: 5%;
+    width: 400px;
+    background-color: white;
+    border-radius: 10px;
+    padding: 2%;
+    border: 10px solid #73b402;
+    position: relative;
+    justify-content: space-evenly;
+}
+.but{
+    position: absolute;
+    left: 65.3%;
+}
+.welcome{
+    color:darkgreen;
+    font-weight: lighter; 
+    font-size: xx-large;
+    font-family: 'Otomanopee One', sans-serif;
+}
+@media(max-width:500px){
+    
+    .depositwithdraw {
+        border: 4px solid #73b402;
+    width: 250px;
+    margin-top: 1%;
+    padding: 2%;
+    margin: 5%;
+    }
+    .welcome{
+        align-items: center;
+        font-size: larger;
+
+    }
+    .both{
+        display:flex;
+        flex-direction: column;
+        margin-left: 2%;
+    }
+    .but{
+        position: absolute;
+        left: 58%;
+        height: 29px;
+        width: 84px;
+        font-size: small;
+       
+    }
+    .form-control{
+        width: 230px;
+        height: 20px;
+    }
+}
